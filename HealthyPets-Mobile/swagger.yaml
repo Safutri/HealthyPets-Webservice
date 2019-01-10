@@ -1,0 +1,507 @@
+swagger: '2.0'
+info:
+  description: Ini adalah layanan API dari HealthyPets. Yaitu layanan untuk menerapkan IOT.
+  version: 1.0.0
+  title: HealthyPets
+  termsOfService: 'https://admin-app-dot-healthypets-admin.appspot.com/terms/'
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: 'admin-app-dot-healthypets-admin.appspot.com'
+basePath: /v1
+tags:
+  - name: pemilik
+    description: >-
+      Pemilik mengartikan kepemilikan klinik hewan. 
+  - name: klinik
+    description: >-
+      Klinik hewan berisi tentang data klinik hewan. 
+  - name: resepsionis
+    description: >-
+      Resepsionis yang terdaftar untuk setiap klinik hewan. 
+  - name: dokter hewan
+    description: >-
+      Dokter Hewan yang terdaftar untuk setiap klinik hewan. 
+schemes:
+  - https
+paths:
+
+  /pemilik:
+    post:
+      tags:
+        - pemilik
+      summary: Mendaftarkan pemilik baru
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: pemilik
+          in: body
+          description: object pemilik
+          required: true
+          schema:
+            $ref: '#/definitions/Pemilik'
+      responses:
+        '200':
+          description: Pendaftaran Berhasil
+        '405':
+          description: Invalid
+    put:
+      tags:
+        - pemilik
+      summary: Mengubah informasi pemilik
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: pemilik
+          in: body
+          description: object pemilik edit
+          required: true
+          schema:
+            $ref: '#/definitions/PemilikEdit'
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Pemilik tidak ditemukan
+        '405':
+          description: Invalid
+    get:
+      tags:
+        - pemilik
+      summary: Melihat informasi pemilik
+      description: ''
+      produces:
+        - application/json
+      parameters:
+        - name: pemilik
+          in: body
+          description: object pemilik ID
+          required: true
+          schema:
+            $ref: '#/definitions/PemilikID'
+      responses:
+        '200':
+          description: Sukses
+          schema:
+            $ref: '#/definitions/PemilikEdit'
+        '400':
+          description: Invalid
+    
+  /klinik:
+    post:
+      tags:
+        - klinik
+      summary: Mendaftarkan klinik baru
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: klinik
+          in: body
+          description: object klinik
+          required: true
+          schema:
+            $ref: '#/definitions/Klinik'
+      responses:
+        '200':
+          description: Pendaftaran klinik Berhasil
+        '405':
+          description: Invalid
+    get:
+      tags:
+        - klinik
+      summary: Melihat list klinik
+      description: ''
+      produces:
+        - application/json
+      parameters:
+        - name: klinik
+          in: body
+          description: object klinik ID dan limit
+          required: true
+          schema:
+            $ref: '#/definitions/KlinikLimit'
+      responses:
+        '200':
+          description: Sukses
+          schema:
+            $ref: '#/definitions/Klinik'
+        '400':
+          description: Invalid 
+          
+    put:
+      tags:
+        - klinik
+      summary: Mengubah informasi klinik
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: klinik
+          in: body
+          description: object klinik perbarui
+          required: true
+          schema:
+            $ref: '#/definitions/KlinikEdit'
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Klinik tidak ditemukan
+        '405':
+          description: Invalid
+          
+  /resepiosnis:
+    post:
+      tags:
+        - resepsionis
+      summary: Mendaftarkan resepsionis baru berdasarkan id klinik
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: resepsionis
+          in: body
+          description: object resepsionis
+          required: true
+          schema:
+            $ref: '#/definitions/Resepsionis'
+      responses:
+        '200':
+          description: Pendaftaran resepsionis Berhasil
+        '405':
+          description: Invalid
+    get:
+      tags:
+        - resepsionis
+      summary: Melihat informasi resepsionis
+      description: ''
+      produces:
+        - application/json
+      parameters:
+        - name: resepsionis
+          in: body
+          description: object resepsionis ID
+          required: true
+          schema:
+            $ref: '#/definitions/ResepsionisID'
+      responses:
+        '200':
+          description: Sukses
+          schema:
+            $ref: '#/definitions/ResepsionisEdit'
+        '400':
+          description: Invalid
+          
+    put:
+      tags:
+        - resepsionis
+      summary: Mengubah informasi resepsionis
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: resepsionis
+          in: body
+          description: object resepsionis perbarui
+          required: true
+          schema:
+            $ref: '#/definitions/ResepsionisEdit'
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Resepsionis tidak ditemukan
+        '405':
+          description: Invalid
+          
+          ##
+          
+  /drh:
+    post:
+      tags:
+        - drh
+      summary: Mendaftarkan drh baru berdasarkan id klinik
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: drh
+          in: body
+          description: object drh
+          required: true
+          schema:
+            $ref: '#/definitions/Drh'
+      responses:
+        '200':
+          description: Pendaftaran drh Berhasil
+        '405':
+          description: Invalid
+    get:
+      tags:
+        - drh
+      summary: Melihat informasi drh
+      description: ''
+      produces:
+        - application/json
+      parameters:
+        - name: drh
+          in: body
+          description: object drh ID
+          required: true
+          schema:
+            $ref: '#/definitions/DrhID'
+      responses:
+        '200':
+          description: Sukses
+          schema:
+            $ref: '#/definitions/DrhEdit'
+        '400':
+          description: Invalid
+          
+    put:
+      tags:
+        - drh
+      summary: Mengubah informasi drh
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: resepsionis
+          in: body
+          description: object drh perbarui
+          required: true
+          schema:
+            $ref: '#/definitions/DrhEdit'
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: drh tidak ditemukan
+        '405':
+          description: Invalid
+          
+
+definitions:
+  Pemilik:
+    description: Object Pemilik
+    properties:
+      nama:
+        type: string
+      alamat:
+        type: string
+      email:
+        type: string
+      identitas:
+        type: string
+      telp:
+        type: string
+    required:
+      - nama
+      - alamat
+      - email
+      - telp
+  PemilikID:
+    description: Object Pemilik
+    properties:
+      id:
+        type: number
+    required:
+      - id
+  PemilikEdit:
+    description: Object Pemilik Edit
+    properties:
+      id:
+        type: number
+      nama:
+        type: string
+      alamat:
+        type: string
+      email:
+        type: string
+      identitas:
+        type: string
+    required:
+      - id
+      - nama
+      - alamat
+      - identitas
+      - telp
+
+  Klinik:
+    description: Object Klinik
+    properties:
+      nama:
+        type: string
+      alamat:
+        type: string
+      email:
+        type: string
+      identitas:
+        type: string
+      telp:
+        type: string
+    required:
+      - nama
+      - alamat
+      - email
+      - telp 
+
+  KlinikLimit:
+    description: Object Klinik Limit
+    properties:
+      idKlinik:
+        type: number
+      offset:
+        type: string
+      limit:
+        type: string
+    required:
+      - idKlinik
+      
+  KlinikEdit:
+    description: Object Klinik Edit
+    properties:
+      id:
+        type: number
+      nama:
+        type: string
+      alamat:
+        type: string
+      email:
+        type: string
+      identitas:
+        type: string
+    required:
+      - id
+      - nama
+      - alamat
+      - identitas
+      - telp
+      
+  Resepsionis:
+    description: Object Resepsionis
+    properties:
+      idKlinik:
+        type: string
+      nama:
+        type: string
+      alamat:
+        type: string
+      email:
+        type: string
+      telp:
+        type: string
+      email_klinik:
+        type: string
+      nama_klinik:
+        type: string
+    required:
+      - idKlinik
+      - nama
+      - alamat
+      - email
+      - telp 
+      - email_klinik
+      - nama_klinik
+      
+  ResepsionisID:
+    description: Object Resepsionis
+    properties:
+      id:
+        type: number
+    required:
+      - id
+      
+  ResepsionisEdit:
+    description: Object Resepsionis Edit
+    properties:
+      id:
+        type: number
+      nama:
+        type: string
+      alamat:
+        type: string
+      email:
+        type: string
+      identitas:
+        type: string
+    required:
+      - id
+      - nama
+      - alamat
+      - identitas
+      - telp 
+      
+  Drh:
+    description: Object Drh
+    properties:
+      idResepsionis:
+        type: string
+      nama:
+        type: string
+      alamat:
+        type: string
+      email:
+        type: string
+      telp:
+        type: string
+      email_klinik:
+        type: string
+      nama_klinik:
+        type: string
+      no_praktik:
+        type: string
+    required:
+      - idKlinik
+      - nama
+      - alamat
+      - email
+      - telp 
+      - email_klinik
+      - nama_klinik
+      - no_praktik
+      
+  DrhID:
+    description: Object Drh
+    properties:
+      id:
+        type: number
+    required:
+      - id
+      
+  DrhEdit:
+    description: Object Drh Edit
+    properties:
+      idResepsionis:
+        type: number
+      nama:
+        type: string
+      alamat:
+        type: string
+      email:
+        type: string
+      no_praktik:
+        type: string
+    required:
+      - id
+      - nama
+      - alamat
+      - no_praktik
+      - telp 

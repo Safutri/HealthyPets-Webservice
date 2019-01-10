@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+         
+  <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.admin.healthypets.servlet.auth.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+    <servlet-name>HomeServlet</servlet-name>
+    <servlet-class>com.admin.healthypets.servlet.home.HomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HomeServlet</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping> 
+
+     <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.admin.healthypets.servlet.auth.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.admin.healthypets.servlet.auth.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>PemilikServlet</servlet-name>
+    <servlet-class>com.admin.healthypets.servlet.pemilik.PemilikServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PemilikServlet</servlet-name>
+    <url-pattern>/pemilik</url-pattern>
+  </servlet-mapping> 
+
+   <servlet>
+    <servlet-name>TampilPemilikServlet</servlet-name>
+    <servlet-class>com.admin.healthypets.servlet.pemilik.TampilPemilikServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TampilPemilikServlet</servlet-name>
+    <url-pattern>/all-pemilik</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+    <servlet-name>KlinikServlet</servlet-name>
+    <servlet-class>com.admin.healthypets.servlet.klinik.KlinikServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>KlinikServlet</servlet-name>
+    <url-pattern>/klinik</url-pattern>
+  </servlet-mapping> 
+
+	<servlet>
+	    <servlet-name>TampilKlinikPemilikServlet</servlet-name>
+	    <servlet-class>com.admin.healthypets.servlet.klinik.TampilKlinikPemilikServlet</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>TampilKlinikPemilikServlet</servlet-name>
+	    <url-pattern>/lihat-klinik</url-pattern>
+	  </servlet-mapping> 
+	  
+  <servlet>
+    <servlet-name>PemilikKlinikServlet</servlet-name>
+    <servlet-class>com.admin.healthypets.servlet.pemilik.PemilikKlinikServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PemilikKlinikServlet</servlet-name>
+    <url-pattern>/lihat-pemilik-klinik</url-pattern>
+  </servlet-mapping> 
+	  
+	      <servlet>
+    <servlet-name>DaftarResepsionisServlet</servlet-name>
+        <servlet-class>com.admin.healthypets.servlet.resepsionis.DaftarResepsionisServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DaftarResepsionisServlet</servlet-name>
+     <url-pattern>/daftar-resepsionis</url-pattern>
+  </servlet-mapping>
+	  
+  <servlet>
+    <servlet-name>ResepsionisServlet</servlet-name>
+        <servlet-class>com.admin.healthypets.servlet.resepsionis.ResepsionisServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResepsionisServlet</servlet-name>
+     <url-pattern>/resepsionis</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>DaftarDrhServlet</servlet-name>
+        <servlet-class>com.admin.healthypets.servlet.drh.DaftarDrhServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DaftarDrhServlet</servlet-name>
+     <url-pattern>/daftar-drh</url-pattern>
+  </servlet-mapping>
+  
+      <servlet>
+    <servlet-name>DrhServlet</servlet-name>
+        <servlet-class>com.admin.healthypets.servlet.drh.DrhServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DrhServlet</servlet-name>
+     <url-pattern>/drh</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>PerbaruiPemilikServlet</servlet-name>
+    <servlet-class>com.admin.healthypets.servlet.pemilik.PerbaruiPemilikServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PerbaruiPemilikServlet</servlet-name>
+    <url-pattern>/perbarui</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>PerbaruiKlinikServlet</servlet-name>
+    <servlet-class>com.admin.healthypets.servlet.klinik.PerbaruiKlinikServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PerbaruiKlinikServlet</servlet-name>
+    <url-pattern>/perbarui-klinik</url-pattern>
+  </servlet-mapping>
+	  
+	    <servlet>
+    <servlet-name>PerbaruiResepsionisServlet</servlet-name>
+        <servlet-class>com.admin.healthypets.servlet.resepsionis.PerbaruiResepsionisServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PerbaruiResepsionisServlet</servlet-name>
+     <url-pattern>/perbarui-resepsionis</url-pattern>
+  </servlet-mapping>
+	  
+	    <servlet>
+    <servlet-name>PerbaruiDrhServlet</servlet-name>
+        <servlet-class>com.admin.healthypets.servlet.drh.PerbaruiDrhServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PerbaruiDrhServlet</servlet-name>
+     <url-pattern>/perbarui-drh</url-pattern>
+  </servlet-mapping>
+	  
+  <servlet>
+    <servlet-name>LockScreenServlet</servlet-name>
+    <servlet-class>com.admin.healthypets.servlet.home.LockScreenServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LockScreenServlet</servlet-name>
+    <url-pattern>/lock</url-pattern>
+  </servlet-mapping> 
+
+  <welcome-file-list>
+    <welcome-file>LoginServlet</welcome-file>
+  </welcome-file-list>
+</web-app>
